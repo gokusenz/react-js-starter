@@ -1,0 +1,15 @@
+version: '2'
+
+services:
+
+### Workspace Utilities Container ###########################
+
+    react-app:
+        image: gokusenz/dockergk:nodejs
+        env_file: .env
+        volumes:
+            - ./:/usr/src/app
+        ports:
+            - "3000:3000"
+
+### Add more Containers below ###############################

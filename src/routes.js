@@ -1,12 +1,13 @@
-const React = require('react');
-const ReactRouter = require('react-router');
-const Router = ReactRouter.Router;
-const Route = ReactRouter.Route;
-const browserHistory = ReactRouter.browserHistory;
-const IndexRoute = ReactRouter.IndexRoute;
+import React from 'react';
+import { Route, IndexRedirect } from 'react-router';
+import App from './components/App';
 
 const routes = (
-  <Router history={browserHistory} />
+  <Route path="/">
+    <IndexRedirect to="/app" />
+    <Route path="app" component={() => <App>Test</App>} />
+    <Route path="test" component={App} />
+  </Route>
 );
 
-module.exports = routes;
+export default routes;

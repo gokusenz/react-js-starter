@@ -4,7 +4,7 @@
   "description": "reactjs starter",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server --hot --inline --host 0.0.0.0",
+    "start": "webpack-dev-server --hot --inline --host 0.0.0.0 --history-api-fallback",
     "deploy": "webpack-dev-server --host 0.0.0.0",
     "build": "webpack --progress -p",
     "test": "NODE_ENV=test ./node_modules/.bin/mocha --compilers js:babel-core/register --require ignore-styles --require mock-local-storage ./setup.js ./src/**/**/**/**/**/*.spec.js",

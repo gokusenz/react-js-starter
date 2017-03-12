@@ -4,7 +4,7 @@ import '../styles/App.css';
 const App = ({ children }) => (
   <div className="App">
     <div className="App-header">
-      <h2>Welcome to React</h2>
+      <h2>Welcome to ReactJSs</h2>
       <img src="/public/images/logo.svg" className="App-logo" alt="logo" />
     </div>
     <p className="App-intro">

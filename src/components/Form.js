@@ -4,7 +4,7 @@ import Submit from './Submit';
 
 const Form = () => (
   <div className="App">
-    <Input />
+    <Input> Input :D</Input>
     <Submit />
   </div>
 );

@@ -10,7 +10,7 @@ export default {
   },
 
   get(path, params = {}) {
-    return axios.get(`${domain}${path}`, {
+    return axios.get(path, {
       headers: this.getHeader(),
       params,
       timeout: TIMEOUT_REQUEST,
@@ -18,21 +18,21 @@ export default {
   },
 
   post(path, params = {}) {
-    return axios.post(`${domain}${path}`,
+    return axios.post(path,
       params,
       { headers: this.getHeader(), timeout: TIMEOUT_REQUEST },
     );
   },
 
   put(path, params = {}) {
-    return axios.put(`${domain}${path}`,
+    return axios.put(path,
       params,
       { headers: this.getHeader(), timeout: TIMEOUT_REQUEST },
     );
   },
 
   delete(path, params = {}) {
-    return axios.delete(`${domain}${path}`, {
+    return axios.delete(path, {
       headers: this.getHeader(),
       params,
       timeout: TIMEOUT_REQUEST,

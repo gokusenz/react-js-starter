@@ -1,8 +1,6 @@
 import axios from 'axios';
 import { TIMEOUT_REQUEST } from '../constants/Request';
 
-const domain = `${process.env.SERVICE_URL}`;
-
 export default {
   getHeader() {
     const headers = { Accept: 'application/json' };

@@ -4,7 +4,7 @@ import Api from '../components/Api';
 
 export class ShowApi extends Component {
   state = {
-    result: [],
+    result: '',
   };
 
   componentDidMount() {

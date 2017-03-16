@@ -1,4 +1,4 @@
-require('path');
+const { resolve } = require('path');
 require('dotenv').config();
 const webpack = require('webpack');
 
@@ -8,6 +8,7 @@ const nodePort = process.env.NODE_PORT || '80';
 module.exports = {
   devtool: 'source-map',
   entry: [
+    'react-hot-loader/patch',
     './src/index.js',
   ],
   output: {
@@ -15,30 +16,60 @@ module.exports = {
     publicPath: '/',
     filename: 'bundle.js',
   },
+  resolve: {
+    modules: [resolve(__dirname, 'src'), 'node_modules'],
+  },
   module: {
-    loaders: [
+    rules: [
       {
         test: /\.js$/,
-        exclude: /node_modules/,
-        loaders: ['babel-loader'],
+        use: [
+          'babel-loader',
+        ],
+        exclude: /(node_modules)/,
       },
       {
         test: /\.css$/,
-        exclude: /node_modules/,
-        loader: 'style-loader!css-loader',
+        use: [
+          'style-loader',
+          'css-loader',
+          'postcss-loader',
+        ],
+        exclude: /(node_modules)/,
       },
       {
         test: /\.scss$/,
-        exclude: /node_modules/,
-        loaders: ['style-loader', 'css-loader', 'sass-loader'],
+        use: [
+          'style-loader',
+          'css-loader',
+          'sass-loader',
+        ],
+        exclude: /(node_modules)/,
+      },
+      {
+        test: /\.(eot|svg|otf|ttf|woff|woff2)$/,
+        use: [
+          {
+            loader: 'url-loader',
+            options: {
+              limit: 100000,
+            },
+          },
+        ],
+        exclude: /(node_modules)/,
       },
     ],
   },
   devServer: {
+    host: '0.0.0.0',
+    inline: true,
     port: nodePort,
+    hot: true,
     historyApiFallback: true,
   },
   plugins: [
+    new webpack.HotModuleReplacementPlugin(),
+    new webpack.NamedModulesPlugin(),
     new webpack.DefinePlugin({
       'process.env': {
         NODE_ENV: JSON.stringify(task),

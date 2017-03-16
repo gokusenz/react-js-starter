@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react';
-import '../styles/App.css';
+import '../styles/App.scss';
 
 const App = ({ children }) => (
   <div className="App">

@@ -33,7 +33,6 @@ module.exports = {
         use: [
           'style-loader',
           'css-loader?modules',
-          'postcss-loader',
         ],
         exclude: /(node_modules)/,
       },
@@ -43,13 +42,14 @@ module.exports = {
           'style-loader',
           {
             loader: 'css-loader?modules',
-            query: {
+            options: {
               sourceMap: true,
+              localIdentName: '[local]___[hash:base64:5]',
             },
           },
           {
             loader: 'sass-loader',
-            query: {
+            options: {
               sourceMap: true,
             },
           },
